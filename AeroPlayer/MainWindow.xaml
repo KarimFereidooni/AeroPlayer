@@ -1,0 +1,146 @@
+﻿<Window x:Class="AeroPlayer.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Aero Player" Height="410" Width="675" AllowsTransparency="False" AllowDrop="True" WindowStyle="SingleBorderWindow" PreviewKeyDown="Window_PreviewKeyDown" PreviewMouseWheel="Window_PreviewMouseWheel" Foreground="White" Loaded="Window_Loaded" MouseLeftButtonDown="Window_MouseLeftButtonDown" Icon="/AeroPlayer;component/Resources/Play.ico" Drop="Window_Drop" MinWidth="453" MinHeight="138" Closed="Window_Closed" MouseMove="Window_MouseMove">
+    <Window.ContextMenu>
+        <ContextMenu Name="MainContextMenu" HasDropShadow="True" >
+            <MenuItem Header="File" Name="FileMenu">
+                <MenuItem Header="Open" Name="OpenMenu" Click="OpenMenu_Click" >
+                </MenuItem>
+                <Separator >
+                </Separator>
+                <MenuItem Header="Exit" Name="ExitMenu"  Click="ExitMenu_Click" >
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="View" Name="ViewMenu">
+                <MenuItem Header="Normal" Name="ViewNormalMenu" Click="ViewNormalMenu_Click">
+                </MenuItem>
+                <MenuItem Header="FullScreen" Name="ViewFullScreenMenu" Click="ViewFullScreenMenu_Click">
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Play" Name="PlayMenu">
+                <MenuItem Header="Play/Pause" Name="PlayPauseMenu" Click="PlayPauseMenu_Click"/>
+                <MenuItem Header="Stop" Name="StopMenu" Click="StopMenu_Click"/>
+                <Separator />
+                <MenuItem Header="First" Name="PlayFirstMenu" Click="PlayFirstMenu_Click"/>
+                <MenuItem Header="Next" Name="PlayNextMenu" Click="PlayNextMenu_Click"/>
+                <MenuItem Header="Previous" Name="PlayPrevMenu" Click="PlayPrevMenu_Click"/>
+                <MenuItem Header="Last" Name="PlayLastMenu" Click="PlayLastMenu_Click"/>
+            </MenuItem>
+            <MenuItem Header="Play Speed" Name="PlaySpeedMenu" Loaded="PlaySpeedMenu_Loaded">
+                <MenuItem Header="Fast" Name="PlayFastMenu" Click="PlayFastMenu_Click" IsCheckable="True"/>
+                <MenuItem Header="Normal" Name="PlayNormalMenu" Click="PlayNormalMenu_Click" IsCheckable="True"/>
+                <MenuItem Header="Slow" Name="PlaySlowMenu" Click="PlaySlowMenu_Click" IsCheckable="True"/>
+            </MenuItem>
+            <MenuItem Header="Repeat" Name="RepeatMenu" Loaded="RepeatMenu_Loaded">
+                <MenuItem Header="Repeat One" Name="RepeatOneMenu" Click="RepeatOneMenu_Click" IsCheckable="True"/>
+                <MenuItem Header="Repeat All" Name="RepeatAllMenu" Click="RepeatAllMenu_Click" IsCheckable="True"/>
+                <MenuItem Header="No Repeat" Name="NoRepeatMenu" Click="NoRepeatMenu_Click" IsCheckable="True"/>
+                <MenuItem Header="Repeat AB" Name="RepeatABMenu" Loaded="RepeatABMenu_Loaded">
+                    <MenuItem Header="Set" Name="SetRepeatABMenu" Click="SetRepeatABMenu_Click"/>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Video" Name="VideoMenu" Loaded="VideoMenu_Loaded">
+                <MenuItem Header="Fit Player To Video" Name="FitPlayerToVideoMenu" Click="FitPlayerToVideoMenu_Click" IsCheckable="True" Checked="FitPlayerToVideoMenu_Checked" Unchecked="FitPlayerToVideoMenu_Unchecked"/>
+                <MenuItem Header="Stretch Video" Name="StretchVideoMenu" Click="StretchVideoMenu_Click" IsCheckable="True" Checked="StretchVideoMenu_Checked" Unchecked="StretchVideoMenu_Unchecked"/>
+                <Separator/>
+                <MenuItem Header="50 %" Name="Menu50" Click="Menu50_Click"/>
+                <MenuItem Header="100 %" Name="Menu100" Click="Menu100_Click"/>
+                <MenuItem Header="200 %" Name="Menu200" Click="Menu200_Click"/>
+            </MenuItem>
+            <MenuItem Header="Setting" Name="SettingMenu" Loaded="SettingMenu_Loaded">
+                <MenuItem Header="Set Volume On Mouse Wheel" Name="SetVolumeOnMouseWheelMenu" IsCheckable="True" Checked="SetVolumeOnMouseWheelMenu_Checked" Unchecked="SetVolumeOnMouseWheelMenu_Unchecked"/>
+            </MenuItem>
+            <MenuItem Header="PlayList" Name="PlayListMenu" Loaded="PlayListMenu_Loaded"/>
+            <MenuItem Header="Make SnapShot" Name="MakeSnapShotMenu" Click="MakeSnapShotMenu_Click"/>
+            <MenuItem Header="About" Name="AboutMenu" Click="AboutMenu_Click"/>
+        </ContextMenu>
+    </Window.ContextMenu>
+    <Grid>
+        <MediaElement Name="MyMediaElement" Margin="5,15,5,116" BufferingStarted="MyMediaElement_BufferingStarted" BufferingEnded="MyMediaElement_BufferingEnded" MediaEnded="MyMediaElement_MediaEnded" MediaFailed="MyMediaElement_MediaFailed" MediaOpened="MyMediaElement_MediaOpened" Stretch="Uniform" PreviewMouseLeftButtonDown="MyMediaElement_PreviewMouseLeftButtonDown" MouseUp="MyMediaElement_MouseUp">
+            <MediaElement.Effect>
+                <DropShadowEffect Opacity="0.6" ShadowDepth="8"  />
+            </MediaElement.Effect>
+        </MediaElement>
+        <Grid Height="110" Name="mediaPanel" VerticalAlignment="Bottom">
+            <my:PlayPause Margin="75,0,0,6" x:Name="playPause_button" xmlns:my="clr-namespace:AeroPlayer.Controls" HorizontalAlignment="Left" Width="40" Height="40" VerticalAlignment="Bottom" >
+                <UserControl.Effect>
+                    <DropShadowEffect Opacity="0.5" />
+                </UserControl.Effect>
+            </my:PlayPause>
+            <Slider Margin="21,12,21,0" Name="mediaSlider" Height="22" VerticalAlignment="Top" Opacity="1" IsTabStop="False" Focusable="False" PreviewMouseUp="mediaSlider_PreviewMouseUp" PreviewMouseDown="mediaSlider_PreviewMouseDown" ValueChanged="mediaSlider_ValueChanged" IsMoveToPointEnabled="True" Cursor="Hand" >
+                <Slider.Effect>
+                    <DropShadowEffect Opacity="0.5" ShadowDepth="7" RenderingBias="Performance" Direction="250" />
+                </Slider.Effect>
+            </Slider>
+            <Label Margin="21,36,23,48" Name="StatusLable" Foreground="White" FontSize="12">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+            </Label>
+            <Label FontSize="12" Foreground="White" Height="26" Margin="0,0,10,13" Name="Positionlabel" VerticalAlignment="Bottom" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="140">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+            </Label>
+            <my:Stop x:Name="stop_button" xmlns:my="clr-namespace:AeroPlayer.Controls" Height="16" HorizontalAlignment="Left" Margin="181,0,0,17" VerticalAlignment="Bottom" Width="16" >
+                <UserControl.Effect>
+                    <DropShadowEffect Opacity="0.5" />
+                </UserControl.Effect>
+            </my:Stop>
+            <my:Next x:Name="next_button" xmlns:my="clr-namespace:AeroPlayer.Controls" Height="17" HorizontalAlignment="Left" Margin="121,0,0,17" VerticalAlignment="Bottom" Width="17" >
+                <UserControl.Effect>
+                    <DropShadowEffect Opacity="0.5" />
+                </UserControl.Effect>
+            </my:Next>
+            <my:Previous x:Name="previous_button" xmlns:my="clr-namespace:AeroPlayer.Controls" Height="17" HorizontalAlignment="Left" Margin="52,0,0,17" VerticalAlignment="Bottom" Width="17" >
+                <UserControl.Effect>
+                    <DropShadowEffect Opacity="0.5" />
+                </UserControl.Effect>
+            </my:Previous>
+            <my:FastForward x:Name="fastForward_button" xmlns:my="clr-namespace:AeroPlayer.Controls" Height="17" HorizontalAlignment="Left" Margin="144,0,0,17" VerticalAlignment="Bottom" Width="18" >
+                <UserControl.Effect>
+                    <DropShadowEffect Opacity="0.5" />
+                </UserControl.Effect>
+            </my:FastForward>
+            <my:ReWind x:Name="reWind_button" xmlns:my="clr-namespace:AeroPlayer.Controls" Height="17" Margin="28,0,0,17" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="18" >
+                <UserControl.Effect>
+                    <DropShadowEffect Opacity="0.5" />
+                </UserControl.Effect>
+            </my:ReWind>
+            <Slider Height="22" Margin="218,0,0,15" Name="VolumeSlider" VerticalAlignment="Bottom" ToolTip="Volume" Maximum="1" ValueChanged="VolumeSlider_ValueChanged" LargeChange="0.3" IsTabStop="False" IsHitTestVisible="True" Focusable="False" HorizontalAlignment="Left" Width="124">
+                <Slider.Effect>
+                    <DropShadowEffect Opacity="0.5" ShadowDepth="3" RenderingBias="Performance" />
+                </Slider.Effect>
+            </Slider>
+        </Grid>
+        <Image Margin="178,0,185,125" Name="logo_image" Stretch="Uniform" Source="/AeroPlayer;component/Images/Logo.png" Height="110" VerticalAlignment="Bottom" Opacity="0.5" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform  />
+                    <RotateTransform />
+                    <TranslateTransform  />
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.Triggers>
+                <EventTrigger RoutedEvent="Image.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" DecelerationRatio=".9">
+                                <LinearDoubleKeyFrame KeyTime="0" Value="-500"/>
+                                <LinearDoubleKeyFrame KeyTime="0:0:0.8" Value="30"/>
+                                <LinearDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Image.Triggers>
+        </Image>
+        <TextBlock Height="54" Margin="15,24,252,0" Name="StatusTextBlock" VerticalAlignment="Top" Text="" TextAlignment="Left" FontSize="18">
+            <TextBlock.Effect>
+                <DropShadowEffect></DropShadowEffect>
+            </TextBlock.Effect>
+        </TextBlock>
+    </Grid>
+</Window>

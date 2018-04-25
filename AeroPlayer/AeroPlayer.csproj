@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D95F534B-AFFD-422A-B0B8-F9850E22AC53}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AeroPlayer</RootNamespace>
+    <AssemblyName>AeroPlayer</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>AeroPlayer.snk</AssemblyOriginatorKeyFile>
+    <ApplicationIcon>WindowsMedia.ico</ApplicationIcon>
+    <StartupObject>AeroPlayer.Program</StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Shell\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Shell\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsFormsIntegration">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="AboutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\FastForward.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Next.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\PlayPause.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Previous.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ReWind.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Stop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutWindow.xaml.cs">
+      <DependentUpon>AboutWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AssemblyInformation.cs" />
+    <Compile Include="COMTypes.cs" />
+    <Compile Include="Controls\FastForward.xaml.cs">
+      <DependentUpon>FastForward.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Next.xaml.cs">
+      <DependentUpon>Next.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PlayPause.xaml.cs">
+      <DependentUpon>PlayPause.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Previous.xaml.cs">
+      <DependentUpon>Previous.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ReWind.xaml.cs">
+      <DependentUpon>ReWind.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Stop.xaml.cs">
+      <DependentUpon>Stop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GlassEffectHelper.cs" />
+    <Compile Include="Margins.cs" />
+    <Compile Include="Media.cs" />
+    <Compile Include="PlayListManager.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Snapshoter.cs" />
+    <Compile Include="VersionHelper.cs" />
+    <Compile Include="Win32.cs" />
+    <Compile Include="Windows7Taskbar.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="AeroPlayer.snk" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Circle1.png" />
+    <Resource Include="Images\Circle2.png" />
+    <Resource Include="Images\FastForward.png" />
+    <Resource Include="Images\FastForward1.png" />
+    <Resource Include="Images\FastForward2.png" />
+    <Resource Include="Images\FastForwardP.png" />
+    <Resource Include="Images\Logo.png" />
+    <Resource Include="Images\Next1.png" />
+    <Resource Include="Images\Next2.png" />
+    <Resource Include="Images\Oval1.png" />
+    <Resource Include="Images\Oval2.png" />
+    <Resource Include="Images\Prev1.png" />
+    <Resource Include="Images\Prev2.png" />
+    <Resource Include="Images\ReWind.png" />
+    <Resource Include="Images\ReWind1.png" />
+    <Resource Include="Images\ReWind2.png" />
+    <Resource Include="Images\ReWindP.png" />
+    <Resource Include="Images\SoundOff.png" />
+    <Resource Include="Images\SoundOn.png" />
+    <Resource Include="Images\Stop1.png" />
+    <Resource Include="Images\Stop2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MediaCenterPanel.png" />
+    <Resource Include="Images\next.png" />
+    <Resource Include="Images\nextH.png" />
+    <Resource Include="Images\nextP.png" />
+    <Resource Include="Images\pause.png" />
+    <Resource Include="Images\pauseH.png" />
+    <Resource Include="Images\pauseP.png" />
+    <Resource Include="Images\play.png" />
+    <Resource Include="Images\playH.png" />
+    <Resource Include="Images\playP.png" />
+    <Resource Include="Images\previous.png" />
+    <Resource Include="Images\previousH.png" />
+    <Resource Include="Images\previousP.png" />
+    <Resource Include="Images\ProgressBtn.png" />
+    <Resource Include="Images\SoundPanel.png" />
+    <Resource Include="Images\stop.png" />
+    <Resource Include="Images\stopH.png" />
+    <Resource Include="Images\stopP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Resources\PhotoSound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Play.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Play.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WindowsMedia.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NextIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PauseIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PrevIcon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

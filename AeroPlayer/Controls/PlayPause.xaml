@@ -1,0 +1,8 @@
+﻿<UserControl x:Class="AeroPlayer.Controls.PlayPause"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="40" Width="40">
+    <Grid Height="40" Width="40">
+        <Image Name="my_image" Stretch="Fill" Source="/AeroPlayer;component/Images/play.png" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" MouseEnter="my_image_MouseEnter" MouseLeave="my_image_MouseLeave" PreviewMouseDown="my_image_PreviewMouseDown" PreviewMouseUp="my_image_PreviewMouseUp" />
+    </Grid>
+</UserControl>
